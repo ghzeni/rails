@@ -9,7 +9,6 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  # renders views/articles/new.html.erb by default
   def new 
     @article = Article.new
   end
@@ -18,12 +17,23 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      #* without redirect_to, if the user refreshes the page, 
-      #* the browser will make the same request, and the 
-      #* mutation will be repeated.
       redirect_to @article
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
