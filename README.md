@@ -9,7 +9,7 @@ Basic implementations of Ruby on Rails concepts and features. This repo is a col
 
 ## Contents
 
-### [1. Blog](path/to/blog)
+### [1. Blog](/blog#blog)
 A simple blog application that demonstrates the basic CRUD operations in Ruby on Rails, as introduced in the [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html) guide.
 
 ## Branching methodology
