@@ -1,6 +1,16 @@
 ## blog
 
-### starting the application
+### Cloning this project
+You might want to simply clone this project instead of cloning my entire rails/ repo. To do that, run the following commands in the directory you wish this application to be.
+```bash
+git clone -n --depth=1 --filter=tree:0 git@github.com:ghzeni/rails.git 
+cd rails
+git sparse-checkout set --no-cone blog
+git checkout
+```
+Note: this will still bring the rails directory into the path, but only the blog application will be pulled.
+
+### Starting the application
 ```bash
 rails s
 ```
