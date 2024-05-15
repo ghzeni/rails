@@ -10,7 +10,20 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  <header>
+    <h1>Blog</h1>
+    <nav>
+      <inline>
+        <i><%= link_to "Home", root_url %></li> ●
+        <i><%= link_to "New Article", new_article_path %></li>
+      </inline>
+    </nav>
+
   <body>
+    <% flash.each do | name, msg | %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
