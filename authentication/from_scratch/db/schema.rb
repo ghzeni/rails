@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_12_210458) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_180252) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "public"
+    t.string "created_by_user"
   end
 
   create_table "comments", force: :cascade do |t|
