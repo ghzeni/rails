@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', :as => 'login'
   get 'register', to: 'users#new'
   get 'articles/new' => 'articles#new', :as => 'new_article'
+  get 'articles/:id/destroy' => 'articles#destroy', :as => 'destroy_article'
   get 'users/new'
   # root 'users#new'
   root 'articles#index'

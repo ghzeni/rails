@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   attr_accessor :password
+  has_many :articles
 
   before_save :encrypt_password
 

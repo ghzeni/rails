@@ -9,8 +9,10 @@
     <%= comment.body %>
   </p>
 
-  <p>
-    <%= link_to "Destroy Comment", [comment.article, comment], 
-      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-  </p>
+  <% if current_user == comment.user%>
+    <p><%= destroy_link([comment.article, comment]) %></p>
+  <% end %>
+
+  <div>------</div>
+
 <% end %>

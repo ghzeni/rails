@@ -3,11 +3,10 @@
 <p><%= @article.body %></p>
 
 <ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
+  <% if current_user == @article.user%>
+    <li><%= link_to "edit article", edit_article_path(@article) %></li>
+    <li><%= destroy_link(@article) %></li>
+  <% end %>
 </ul>
 
 <h2>Comments</h2>
