@@ -1,0 +1,18 @@
+<% unless comment.archived? %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+
+  <% if current_user == comment.user%>
+    <p><%= destroy_link([comment.article, comment]) %></p>
+  <% end %>
+
+  <div>------</div>
+
+<% end %>

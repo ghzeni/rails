@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <header>
+    <h1>Blog</h1>
+    <nav>
+      <inline> 
+        <h3>
+          <i><%= link_to "Home", root_url %></li> •︎
+          <i><%= link_to "New Article", current_user ? new_article_path : login_path %></li>
+        </h3>
+      </inline>
+    </nav>
+
+    <div id="user_nav">
+      <% if current_user %>
+      <i>
+          Logged in as <%= current_user.email %>
+          <%= link_to "Logout", logout_path, method: :delete %>
+        </i>
+      <% else %>
+        <%= link_to "Sign up", register_path %> or <%= link_to "Login", login_path %>
+      <% end %>
+    </div>
+  </header>
+
+  <body>
+    <% flash.each do | name, msg | %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    
+    <%= yield %>
+  </body>
+</html>
